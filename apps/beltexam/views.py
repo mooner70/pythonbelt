@@ -67,14 +67,14 @@ def dashboard(request):
 
 
     
-def destination(request, id):
-    context = {
-        "travel_plans" : TravelPlans.objects.get(id=id)
-        }
-    return render(request, 'destination.html', context)
-def join(request, id):
-    userjoin = User.objects.get(id=request.session["user_id"])
-    e = TravelPlans.objects.get(id=id)
-    userjoin.trips.add(e)  
-    return redirect('/travels')
-    # e.travelers=request.session["user_id"]
+# def destination(request, id):
+#     context = {
+#         "travel_plans" : TravelPlans.objects.get(id=id)
+#         }
+#     return render(request, 'destination.html', context)
+# def join(request, id):
+#     userjoin = User.objects.get(id=request.session["user_id"])
+#     e = TravelPlans.objects.get(id=id)
+#     userjoin.trips.add(e)  
+#     return redirect('/travels')
+#     # e.travelers=request.session["user_id"]

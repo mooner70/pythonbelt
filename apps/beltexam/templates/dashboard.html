@@ -24,9 +24,9 @@
             </tr>
             {% for item in items %}
             <tr>
-                    <td><a href="/wish_items/{{items.id}}">{{items.items}}</a></td>
-                    <td>{{items.addedby}}</td>
-                    <td>{{items.date_added}}</td>
+                    <td><a href="/wish_items/{{item.id}}">{{item.items}}</a></td>
+                    <td>{{item.users.name}}</td>
+                    <td>{{item.date_added}}</td>
                     <td><a href=""Remove from my Wishlist></a></td>
             </tr>
             {% endfor %}

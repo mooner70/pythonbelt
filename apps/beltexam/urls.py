@@ -6,13 +6,13 @@ urlpatterns = [
     url(r'^login$', views.login),
     url(r'^dashboard$', views.dashboard),
     url(r'^add$', views.add),
-    url(r'^wish_items/create$', views.additem),
-
-
-
-
-    # url(r'^createitem$', views.createitem),
     url(r'^wish_items/(?P<id>\d+)$', views.wishitems), 
+
+
+
+
+    url(r'^wish_items/create$', views.additem),
+    # url(r'^createitem$', views.createitem),
     url(r'^logout$', views.logout),
 ]
 
