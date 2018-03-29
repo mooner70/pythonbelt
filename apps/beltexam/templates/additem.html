@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Item</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <a href="/dashboard">Home</a>
+    <a href="/logout">Logout</a>
+  <form action="/createitem" method="POST" class="form-style-9">
+    {% csrf_token %}
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <ul>
+      <h2>Create a New Wish List Item</h2>
+      <li>
+          <input type="text" name="items" class="field-style field-split align-left" placeholder="Item/Product">
+      </li>
+      <li>
+      <input type="submit" class="field-style align-left" value="Add">
+      </li>
+    </ul>
+  </form>    
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>My Wish List</title>
+        <link rel="stylesheet" type="text/css" href="static/styles.css">
+    </head>
+<body>
+    <form action="/additem" method="POST" class="form-style-9">
+        {% csrf_token %}
+        <a href="/logout">Logout</a>
+        <h3>Hello, {{request.session.name}}</h3>
+    </form>
+    <form class="form-style-9">
+        <table>
+            <tr>
+                <p>Your Wish List:</p>
+                <th>Item</th>
+                <th>Added by</th>
+                <th>Date Added</th>
+                <th>Action</th>
+            </tr>
+            {% for item in items %}
+            <tr>
+                    <td><a href="/wish_items/{{items.id}}">{{items.items}}</a></td>
+                    <td>{{items.addedby}}</td>
+                    <td>{{items.date_added}}</td>
+                    <td><a href=""Remove from my Wishlist></a></td>
+            </tr>
+            {% endfor %}
+            <!-- {% for joined_plans in joined_plans %}
+            <tr>
+                    <td><a href="/travels/destination/{{travel_plans.id}}"></a></td>
+                    <td>{{joined_plans.destination}}</td>
+                    <td>{{joined_plans.travel_date_from}}</td>
+                    <td>{{joined_plans.travel_date_to}}</td>
+                    <td>{{joined_plans.description}}</td>        
+            </tr>
+            {% endfor %} -->
+        </table>
+        <hr>
+        <table>
+
+            <tr>
+                <p>Other User's Wish List</p>
+                <th>Item</th>
+                <th>Added by</th>
+                <th>Date Added</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <!-- {% for others_plans in others_plans %}
+                <tr>
+                    <td>{{others_plans.user.name}}</td>
+                    <td><a href="travels/destination/{{others_plans.id}}">{{others_plans.destination}}</a></td>
+                    <td>{{others_plans.travel_date_from}}</td>
+                    <td>{{others_plans.travel_date_to}}</td>
+                    <td><a href="join/{{others_plans.id}}">Join</a></td>        
+                </tr>
+                {% endfor %} -->
+            </tr>
+        </table>
+        <a href="/wish_items/create">Add item</a>
+    </form>
+</body>
+</html>
